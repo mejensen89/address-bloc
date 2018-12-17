@@ -9,6 +9,7 @@
         message: "Please choose from an option below: ",
         choices: [
           "Add new contact",
+          "Show the date and time",
           "Exit"
         ]
       }
@@ -24,6 +25,9 @@
          case "Add new contact":
            this.addContact();
            break;
+         case "Show the date and time":
+         	this.getDate();
+         	break;
          case "Exit":
            this.exit();
          default:
@@ -49,6 +53,12 @@
  exit(){
  	console.log("Thanks for using AddressBloc!");
  	process.exit();
+ }
+
+ getDate(){
+ 	var ts = new Date()
+     console.log( " The current date & time is: " + ts);
+    this.main();
  }
 
 }
