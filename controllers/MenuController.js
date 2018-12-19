@@ -9,7 +9,8 @@
         message: "Please choose from an option below: ",
         choices: [
           "Add new contact",
-          "Exit"
+          "Exit",
+          "Reminder"
         ]
       }
     ];
@@ -26,6 +27,9 @@
            break;
          case "Exit":
            this.exit();
+         case "Reminder":
+           this.remindMe();
+           break;
          default:
            console.log("Invalid input");
            this.main();
@@ -53,6 +57,11 @@
 
  getContactCount() {
     return this.contacts.length;
+ }
+
+ remindMe() {
+  console.log("Learning is a life-long pursuit");
+  return("Learning is a life-long pursuit");
  }
 
 }
