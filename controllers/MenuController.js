@@ -51,4 +51,8 @@
  	process.exit();
  }
 
+ getContactCount() {
+    return this.contacts.length;
+ }
+
 }
