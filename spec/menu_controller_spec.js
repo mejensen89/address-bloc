@@ -1,7 +1,7 @@
  const MenuController = require("../controllers/MenuController");
 
 describe("MenuController", ()=> {
-	describe("#getContactCount()", ()=> {
+	/* describe("#getContactCount()", ()=> {
 
 		beforeEach(()=> {
 			this.menu = new MenuController();
@@ -15,5 +15,5 @@ describe("MenuController", ()=> {
 			this.menu.book.addContact("Bob","555-555-5555");
 			expect(this.menu.getContactCount()).toBe(1)
 		});
-	});
+	}); */
 });
