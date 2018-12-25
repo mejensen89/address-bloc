@@ -4,7 +4,7 @@
     "password": null,
     "database": "address-bloc-dev",
     "host": "127.0.0.1",
-    "dialect": "postgres",
+    "dialect": "postgreSQL",
     "logging": false,
     "port": "3000"
   },
