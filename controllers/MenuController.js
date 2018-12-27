@@ -10,6 +10,7 @@
         message: "Please choose from an option below: ",
         choices: [
           "Add new contact",
+          "View all contacts",
           "Exit"
         ]
       }
@@ -27,6 +28,8 @@
            break;
          case "Exit":
            this.exit();
+         case "View all contacts":
+           this.getContacts();
          default:
            console.log("Invalid input");
            this.main();
@@ -61,6 +64,24 @@
 
  getContactCount() {
     return this.contacts.length;
+ }
+
+ getContacts(){
+  this.clear();
+  this.book.getContacts().then((contacts)=>{
+    for (let contact of contacts) {
+      console.log(`
+        name: ${contact.name}
+        phone number: ${contact.phone}
+        email: ${contact.email}
+        --------------------------`
+        );
+    }
+    this.main();
+  }).catch((err)=> {
+    console.log(err);
+    this.main;
+  })
  }
 
 }
