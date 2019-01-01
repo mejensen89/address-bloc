@@ -11,6 +11,7 @@
         choices: [
           "Add new contact",
           "View all contacts",
+          "Search for a contact",
           "Exit"
         ]
       }
@@ -30,6 +31,9 @@
            this.exit();
          case "View all contacts":
            this.getContacts();
+         case "Search for a contact":
+           this.search();
+           break;
          default:
            console.log("Invalid input");
            this.main();
@@ -83,5 +87,35 @@
     this.main;
   })
  }
+ search(){
+  inquirer.prompt(this.book.searchQuestions).then((target) => {
+    this.book.search(target.name)
+    .then((contact)=>{
+      if(contact === null){
+        this.clear();
+        console.log("contact not found");
+        this.search();
+      } else {
+        this.showContact(contact);
+      }
+    });
+  })
+  .catch((err)=>{
+    console.log(err);
+    this.main();
+  });
+ }
+ 
+ showContact(contact){
+  this._printContact(contact);
+ }
 
+ _printContact(contact){
+  console.log(`
+    name: ${contact.name}
+    phone number: ${contact.phone}
+    email: ${contact.email}
+    `
+    );
+ }
 }
