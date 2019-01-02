@@ -41,6 +41,24 @@ module.exports = class ContactController {
 				}
 			}
 		];
+		this.showContactQuestions = [
+			{
+				type: "list",
+				name: "selected",
+				message: "Please choose from an option below: ",
+				choices: [
+					"Delete contact",
+					"Main menu"
+				]
+			}
+		];
+		this.deleteConfrimQuestions = [
+			{
+				type: "confirm",
+				name: "confirmation",
+				message: "are you sure you want to delete this contact?"
+			}
+		];
 	}
 
 	addContact(name, phone, email) {
@@ -54,7 +72,7 @@ module.exports = class ContactController {
 	iterativeSearch(contacts, target){
 
 		for(let contact of contacts){
-			if(contact.name.toLowerCase()=== taget.toLowerCase()){
+			if(contact.name.toLowerCase()=== target.toLowerCase()){
 				return contact;
 			}
 		}
@@ -85,6 +103,12 @@ module.exports = class ContactController {
 		return Contact.findOne({
 			where: {name}
 		});
+	}
+
+	delete(id){
+		return Contact.destroy({
+			where: {id}
+		})
 	}
 
 }
